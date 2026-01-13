@@ -16,10 +16,14 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://winkslashh.vercel.app"
+    ],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 
@@ -74,3 +78,6 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () =>
   console.log(`🚀 Server running on port ${PORT}`)
 );
+
+module.exports = app;
+ 
